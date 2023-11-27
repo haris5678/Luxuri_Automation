@@ -1,6 +1,6 @@
-# Bizb Automation
+# Luxuri Automation
 
-Cypress is used for the automation testing of bizb
+Cypress is used for the automation testing of luxuri
 
 ## Installation
 
