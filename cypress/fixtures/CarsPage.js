@@ -4,6 +4,8 @@ class CarsPage {
       cy
         .get('.main_navbar_menu_items > [href="/luxury-car-rentals-miami"]')
         .click({ force: true }),
+    Click_Car_Logo_Lamborghini: () =>
+      cy.get(".swiper-slide-active").click({ force: true }),
     Car_detail: () =>
       cy
         .get(":nth-child(1) > .card > .card_info-container > .detail-btn")
@@ -15,13 +17,13 @@ class CarsPage {
     Car_dropoff_date_13Dec: () =>
       cy
         .get(
-          ":nth-child(5) > .react-datepicker__month > :nth-child(3) > .react-datepicker__day--013"
+          ":nth-child(5) > .react-datepicker_month > :nth-child(3) > .react-datepicker_day--013"
         )
         .click({ force: true }),
     Car_pickup_date_30Nov: () =>
       cy
         .get(
-          ":nth-child(4) > .react-datepicker__month > :nth-child(5) > .react-datepicker__day--030"
+          ":nth-child(4) > .react-datepicker_month > :nth-child(5) > .react-datepicker_day--030"
         )
         .click({ force: true }),
     Car_calender_submit_button: () =>
@@ -40,15 +42,26 @@ class CarsPage {
       cy.get("#carDetailInquirySubmitBtn").click({ force: true }),
     Sucess_message: () =>
       cy.get("#swal2-title").contains("Your request has been submitted."),
-    message_button_ok: () => cy.get(".swal2-confirm").click({ force: true })
+    message_button_ok: () => cy.get(".swal2-confirm").click({ force: true }),
+    Car_Scroller_All: () => cy.get(".filter_items > .active").contains("All")
   };
 
   Cars_Page() {
     this.elements.Navigate_to_cars_page();
   }
+  Explore_Car_Brands() {
+    this.elements.Car_Scroller_All();
+  }
+
+  Click_Car_Logo_Lamborghini() {
+    this.elements.Click_Car_Logo_Lamborghini();
+  }
   Car_detail_page() {
     this.elements.Car_detail();
+    cy.scrollTo("center");
     this.elements.Wait_6000();
+  }
+  Open_Inquire_Form() {
     this.elements.Car_inquire();
     this.elements.Car_booking_date_field();
     this.elements.Car_pickup_date_30Nov();
