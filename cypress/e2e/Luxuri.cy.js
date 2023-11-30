@@ -59,10 +59,64 @@ describe("Cars Page", () => {
     CarsPage.Submit_Form_Without_Selecting_Source();
   });
 
-  it.only("It should not submit inquire form without Name", () => {
+  it("It should not submit inquire form without Name", () => {
     HomePage.Valid_Response();
     CarsPage.Cars_Page();
     CarsPage.Car_detail_page();
     CarsPage.Submit_Form_Without_Entering_Name();
   });
+
+  it("It should not submit inquire form without Email", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_Without_Entering_Email();
+  });
+
+  it("It should not Submit with Past Pickup Date", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Past_Pickup_Date();
+  });
+
+  it.only("It should not submit with charactors in number field", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Nonnumeric_Characters_in_Phone_Number();
+  });
+  it.only(
+    "It should not select text message without entering phone number",
+    () => {
+      HomePage.Valid_Response();
+      CarsPage.Cars_Page();
+      CarsPage.Car_detail_page();
+      CarsPage.Select_Text_Message_without_Entering_Phone_Number();
+    }
+  );
+
+  it.only("It should not Submit Form with Special Characters in Name", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Special_Characters_in_Name();
+  });
+
+  it.only("It should not Submit Form with invalid email format", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Invalid_Email_Format();
+  });
+
+  it.only(
+    "It should not Submit Form with Dropoff Date Earlier than Pickup Date",
+    () => {
+      HomePage.Valid_Response();
+      CarsPage.Cars_Page();
+      CarsPage.Car_detail_page();
+      CarsPage.Submit_Form_with_Dropoff_Date_Earlier_than_Pickup_Date();
+    }
+  );
 });
