@@ -9,7 +9,7 @@ describe("Home Page", () => {
     HomePage.Valid_Response();
   });
 });
-
+//************************************cars page**************** */
 describe("Cars Page", () => {
   it("It should redirect to cars page", () => {
     HomePage.Valid_Response();
