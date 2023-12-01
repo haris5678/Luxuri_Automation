@@ -20,15 +20,11 @@ class CarsPage {
     Car_booking_date_field: () => cy.get(".datepicker").click({ force: true }),
     Car_dropoff_date_14March: () =>
       cy
-        .get(
-          ":nth-child(5) > .react-datepicker__month > :nth-child(2) > .react-datepicker__day--005"
-        )
+        .get(":nth-child(4) > .react-datepicker__day--019")
         .click({ force: true }),
     Car_pickup_date_19March_2024: () =>
       cy
-        .get(
-          ":nth-child(5) > .react-datepicker__month > :nth-child(2) > .react-datepicker__day--005"
-        )
+        .get(":nth-child(4) > .react-datepicker__day--019")
         .click({ force: true }),
 
     Car_calender_submit_button: () =>
@@ -84,6 +80,7 @@ class CarsPage {
     this.elements.Check_Lamborghini_Logo_Contains_Lamborghini_Only();
   }
   Car_detail_page() {
+    cy.wait(3000);
     this.elements.Car_detail();
     cy.wait(3000);
     cy.scrollTo("center");
@@ -311,6 +308,51 @@ class CarsPage {
     this.elements.Press_submit_button();
     this.elements.Wait_4000();
     // cy.get('.sc-aXZVg').contains("Email should be valid");
+  }
+
+  Submit_Form_with_Very_Long_Name() {
+    this.elements.Car_inquire();
+    this.elements.Car_booking_date_field();
+    cy
+      .get(
+        ".react-datepicker__navigation--next > .react-datepicker__navigation-icon"
+      )
+      .click({ force: true });
+    this.elements.Car_pickup_date_19March_2024();
+    this.elements.Car_dropoff_date_14March();
+    this.elements.Car_calender_submit_button();
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_third_option();
+    this.elements.Enter_Email().type("testemail@gmail.com");
+    this.elements.Hear_about_us_dropdown();
+    this.elements.Hear_about_us_second_option();
+    this.elements
+      .Enter_Name()
+      .type(
+        "Submit_Form_with_Very_Long_Namesdjashdjhasdhjashdjhakdhkjashdkhasjdhjashdkhasdhakshdjkashdjhkashdshak"
+      );
+    this.elements.Press_submit_button();
+    this.elements.Wait_4000();
+  }
+
+  Verify_Missing_Contact_Method_Selection() {
+    this.elements.Car_inquire();
+    this.elements.Car_booking_date_field();
+    cy
+      .get(
+        ".react-datepicker__navigation--next > .react-datepicker__navigation-icon"
+      )
+      .click({ force: true });
+    this.elements.Car_pickup_date_19March_2024();
+    this.elements.Car_dropoff_date_14March();
+    this.elements.Car_calender_submit_button();
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_first_option();
+    this.elements.Hear_about_us_dropdown();
+    this.elements.Hear_about_us_second_option();
+    this.elements.Enter_Name().type("TC032");
+    this.elements.Press_submit_button();
+    this.elements.Wait_4000();
   }
 }
 

@@ -80,43 +80,51 @@ describe("Cars Page", () => {
     CarsPage.Submit_Form_with_Past_Pickup_Date();
   });
 
-  it.only("It should not submit with charactors in number field", () => {
+  it("It should not submit with charactors in number field", () => {
     HomePage.Valid_Response();
     CarsPage.Cars_Page();
     CarsPage.Car_detail_page();
     CarsPage.Submit_Form_with_Nonnumeric_Characters_in_Phone_Number();
   });
-  it.only(
-    "It should not select text message without entering phone number",
-    () => {
-      HomePage.Valid_Response();
-      CarsPage.Cars_Page();
-      CarsPage.Car_detail_page();
-      CarsPage.Select_Text_Message_without_Entering_Phone_Number();
-    }
-  );
+  it("It should not select text message without entering phone number", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Select_Text_Message_without_Entering_Phone_Number();
+  });
 
-  it.only("It should not Submit Form with Special Characters in Name", () => {
+  it("It should not Submit Form with Special Characters in Name", () => {
     HomePage.Valid_Response();
     CarsPage.Cars_Page();
     CarsPage.Car_detail_page();
     CarsPage.Submit_Form_with_Special_Characters_in_Name();
   });
 
-  it.only("It should not Submit Form with invalid email format", () => {
+  it("It should not Submit Form with invalid email format", () => {
     HomePage.Valid_Response();
     CarsPage.Cars_Page();
     CarsPage.Car_detail_page();
     CarsPage.Submit_Form_with_Invalid_Email_Format();
   });
 
-  it.only(
-    "It should not Submit Form with Dropoff Date Earlier than Pickup Date",
-    () => {
-      HomePage.Valid_Response();
-      CarsPage.Cars_Page();
-      CarsPage.Car_detail_page();
-      CarsPage.Submit_Form_with_Dropoff_Date_Earlier_than_Pickup_Date();
-    }
-  );
+  it("It should not Submit Form with Dropoff Date Earlier than Pickup Date", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Dropoff_Date_Earlier_than_Pickup_Date();
+  });
+
+  it("It should not Submit Form with long name", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Submit_Form_with_Very_Long_Name();
+  });
+
+  it.only("It should not Submit Form without centering phone number", () => {
+    HomePage.Valid_Response();
+    CarsPage.Cars_Page();
+    CarsPage.Car_detail_page();
+    CarsPage.Verify_Missing_Contact_Method_Selection();
+  });
 });
