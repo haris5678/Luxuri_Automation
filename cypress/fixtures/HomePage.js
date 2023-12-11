@@ -11,16 +11,6 @@ class HomePage {
       this.elements.Url();
     });
   }
-
-  // //Log In with Invalid Email and valid Password
-  //     Invalid_Email(){
-  //         this.elements.Url()
-  //         this.elements.email().type('haris.anwarcodistan.org')
-  //         this.elements.password().type('Check@1122')
-  //         this.elements.login().contains('Login').click()
-  //         //this.elements.error_message().contains('User not found')
-  //         this.elements.error_message().contains('Invalid email format')         // invalid error message
-  //     }
 }
 
 module.exports = new HomePage();

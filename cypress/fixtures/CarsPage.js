@@ -59,8 +59,7 @@ class CarsPage {
         .click({ force: true }),
 
     //negative test cases
-    // Error_Message_For_date_field: () =>
-    // cy.get(':nth-child(2) > .sc-aXZVg'),
+
     Error_Message_For_prefered_contact_field: () =>
       cy.get(":nth-child(2) > .sc-aXZVg"),
     Error_Message_For_How_Did_You_Hear_field: () =>
@@ -101,14 +100,12 @@ class CarsPage {
     this.elements.Prefered_contact_method_dropdown_first_option();
     this.elements.Enter_phone_number().type("12345678945");
     this.elements.Hear_about_us_dropdown();
-    // this.elements.Wait_6000();
     this.elements.Hear_about_us_second_option();
     this.elements.Enter_Name().type("test");
     this.elements.Press_submit_button();
     this.elements.Wait_4000();
     this.elements.Sucess_message();
     this.elements.message_button_ok();
-    // this.elements.Wait_6000();
   }
 
   //Negative Test Cases
@@ -146,7 +143,6 @@ class CarsPage {
     this.elements.Press_submit_button();
     this.elements.Wait_4000();
     cy.get(".sc-aXZVg").contains("Source preference is required");
-    // this.elements.Error_Message_For_How_Did_You_Hear_field().contains('Source preference is required')
   }
 
   Submit_Form_Without_Entering_Name() {
@@ -236,13 +232,11 @@ class CarsPage {
     this.elements.Car_calender_submit_button();
     this.elements.Prefered_contact_method_dropdown();
     this.elements.Prefered_contact_method_dropdown_second_option();
-    // this.elements.Enter_phone_number().type("ABCDEFGHIJKL");
     this.elements.Hear_about_us_dropdown();
     this.elements.Hear_about_us_second_option();
     this.elements.Enter_Name().type("test017");
     this.elements.Press_submit_button();
     this.elements.Wait_4000();
-    // cy.get('.sc-aXZVg').contains('Phone is required')
   }
 
   Submit_Form_with_Special_Characters_in_Name() {
@@ -307,7 +301,6 @@ class CarsPage {
     this.elements.Enter_Name().type("test017");
     this.elements.Press_submit_button();
     this.elements.Wait_4000();
-    // cy.get('.sc-aXZVg').contains("Email should be valid");
   }
 
   Submit_Form_with_Very_Long_Name() {
