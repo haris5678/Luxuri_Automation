@@ -80,7 +80,7 @@ describe("Cars Page", () => {
     CarsPage.Submit_Form_with_Past_Pickup_Date();
   });
 
-  it("It should not submit with charactors in number field", () => {
+  it("It should not submit with characters in number field", () => {
     HomePage.Valid_Response();
     CarsPage.Cars_Page();
     CarsPage.Car_detail_page();
