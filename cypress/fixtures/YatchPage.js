@@ -366,7 +366,12 @@ class YatchPage {
       cy.get("#contactPreferenceType").click({ force: true }),
     Prefered_contact_method_dropdown_first_option: () =>
       cy.get(".ant-select-item-option-content").eq(0).click({ force: true }),
+    Prefered_contact_method_dropdown_second_option: () =>
+      cy.get(".ant-select-item-option-content").eq(1).click({ force: true }),
+    Prefered_contact_method_dropdown_third_option: () =>
+      cy.get(".ant-select-item-option-content").eq(2).click({ force: true }),
     Enter_phone_number: () => cy.get(":nth-child(3) > .ant-input"),
+    Enter_Email: () => cy.get(":nth-child(3) > .ant-input"),
     Enter_Name: () => cy.get(":nth-child(4) > .ant-input"),
     Press_submit_button: () =>
       cy.get("#yachtSecretFleetSubmitBtn").click({ force: true }),
@@ -408,6 +413,60 @@ class YatchPage {
     //   .Error_Message_For_How_Did_You_Hear_field()
     //   .contains("Source preference is required");
     this.elements.Error_Message_For_Name_field().contains("Name is required");
+  }
+
+  Submit_Form_Without_Entering_Name() {
+    this.elements.Access_Fleet();
+    this.elements.Required_Message().type("NO");
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_first_option();
+    this.elements.Enter_phone_number().type("092038238");
+    this.elements.Press_submit_button();
+    cy.get(".sc-aXZVg").contains("Name is required");
+  }
+
+  Submit_Form_Without_Entering_Email() {
+    this.elements.Access_Fleet();
+    this.elements.Required_Message().type("NO");
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_third_option();
+    this.elements.Enter_Name().type("Yatch_Test");
+    this.elements.Press_submit_button();
+    cy.get(".sc-aXZVg").contains("Email is required");
+  }
+
+  Submit_Form_with_Nonnumeric_Characters_in_Phone_Number() {
+    this.elements.Access_Fleet();
+    this.elements.Required_Message().type("NO");
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_first_option();
+    this.elements.Enter_phone_number().type("ABCDEFGHIJKL");
+
+    this.elements.Enter_Name().type("Yatch_Test");
+    this.elements.Press_submit_button();
+    cy.get(".sc-aXZVg").contains("Phone is required");
+  }
+
+  Select_Text_Message_without_Entering_Phone_Number() {
+    this.elements.Access_Fleet();
+    this.elements.Required_Message().type("NO");
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_second_option();
+    // this.elements.Enter_phone_number().type("ABCDEFGHIJKL");
+    this.elements.Enter_Name().type("Yatch_Test");
+    this.elements.Press_submit_button();
+    cy.get(".sc-aXZVg").contains("Phone is required");
+  }
+
+  Submit_Form_with_Invalid_Email_Format() {
+    this.elements.Access_Fleet();
+    this.elements.Required_Message().type("NO");
+    this.elements.Prefered_contact_method_dropdown();
+    this.elements.Prefered_contact_method_dropdown_third_option();
+    this.elements.Enter_Email().type("testemail");
+    this.elements.Enter_Name().type("Yatch_Test");
+    this.elements.Press_submit_button();
+    cy.get(".sc-aXZVg").contains("Email should be valid");
   }
 }
 
