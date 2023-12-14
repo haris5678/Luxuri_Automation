@@ -35,7 +35,7 @@ class conciergePage {
       cy.get(".swal2-popup").contains("Your request has been submitted"),
     message_button_ok: () => cy.get(".swal2-confirm").click({ force: true })
   };
-
+  //test
   concierge_Page() {
     this.elements.Click_Concierge_Page_Button();
     cy.wait(5000);
