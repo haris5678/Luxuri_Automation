@@ -4,7 +4,7 @@ Cypress is used for the automation testing of luxuri
 
 ## Installation
 
-Use the package manager [npm] to install cypress.
+Use the package manager npm to install cypress.
 
 ```bash
 npm install cypress
