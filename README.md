@@ -4,7 +4,7 @@ Cypress is used for the automation testing of luxuri
 
 ## Installation
 
-Use the package manager [npm]([https://pip.pypa.io/en/stable/](https://docs.npmjs.com/)) to install cypress.
+Use the package manager npm to install cypress.
 
 ```bash
 npm install cypress
